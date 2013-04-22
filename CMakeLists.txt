@@ -11,6 +11,12 @@ project(cs344)
 find_package(OpenCV REQUIRED)
 find_package(CUDA REQUIRED)
 
+IF(NOT CMAKE_BUILD_TYPE)
+  SET(CMAKE_BUILD_TYPE Debug CACHE STRING
+      "Choose the type of build, options are: None Debug Release RelWithDebInfo MinSizeRel."
+      FORCE)
+ENDIF(NOT CMAKE_BUILD_TYPE)
+
 link_libraries(${OpenCV_LIBS} )
 
 set (EXECUTABLE_OUTPUT_PATH "${CMAKE_SOURCE_DIR}/bin/")
@@ -30,6 +36,11 @@ if(CUDA_FOUND)
     if (UNIX)
 	set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} "-Xcompiler -Wextra")
     endif (UNIX)
+
+    # add debugging to CUDA NVCC flags.  For NVidia's NSight tools.
+    if (CMAKE_BUILD_TYPE STREQUAL "Debug")
+	set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} "-G")
+    endif (CMAKE_BUILD_TYPE STREQUAL "Debug")
 
     add_subdirectory (HW1)
     add_subdirectory (HW2)
