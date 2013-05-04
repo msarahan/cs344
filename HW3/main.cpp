@@ -46,6 +46,11 @@ int main(int argc, char **argv) {
 
   switch (argc)
   {
+    case 1:
+	  input_file = "HW3/memorial.exr";
+	  output_file = "HW3_output.png";
+	  reference_file = "HW3_reference.png";
+	  break;
 	case 2:
 	  input_file = std::string(argv[1]);
 	  output_file = "HW3_output.png";
@@ -70,7 +75,7 @@ int main(int argc, char **argv) {
       globalError   = atof(argv[5]);
 	  break;
 	default:
-      std::cerr << "Usage: ./HW3 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
+      std::cerr << "Usage: ./hw3 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
       exit(1);
   }
   //load the image and give us our input and output pointers

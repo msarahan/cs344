@@ -42,6 +42,12 @@ int main(int argc, char **argv) {
 
   switch (argc)
   {
+  case 1:
+	  input_source_file  = "HW6/source.png";
+	  input_dest_file = "HW6/destination.png";
+	  output_file = "HW6_output.png";
+	  reference_file = "HW6_reference.png";
+	  break;
   	case 3:
   	  input_source_file  = std::string(argv[1]);
   	  input_dest_file = std::string(argv[2]);
@@ -70,7 +76,7 @@ int main(int argc, char **argv) {
       globalError   = atof(argv[6]);
   	  break;
   	default:
-        std::cerr << "Usage: ./HW6 input_source_file input_dest_filename [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
+        std::cerr << "Usage: ./hw6 input_source_file input_dest_filename [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
         exit(1);
     }
 

@@ -45,6 +45,11 @@ int main(int argc, char **argv) {
   bool useEpsCheck = false;
   switch (argc)
   {
+    case 1:
+	  input_file = "HW2/cinque_terre_small.jpg";
+	  output_file = "HW2_output.png";
+	  reference_file = "HW2_reference.png";
+	  break;
 	case 2:
 	  input_file = std::string(argv[1]);
 	  output_file = "HW2_output.png";
@@ -69,7 +74,7 @@ int main(int argc, char **argv) {
       globalError   = atof(argv[5]);
 	  break;
 	default:
-      std::cerr << "Usage: ./HW2 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
+      std::cerr << "Usage: ./hw2 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
       exit(1);
   }
   //load the image and give us our input and output pointers

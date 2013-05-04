@@ -48,6 +48,11 @@ int main(int argc, char **argv) {
 
   switch (argc)
   {
+    case 1:
+	  input_file  = "HW4/red_eye_effect_5.jpg";
+	  template_file = "HW4/red_eye_effect_template_5.jpg";
+	  output_file = "HW4_output.png";
+	  break;
 	case 3:
 	  input_file  = std::string(argv[1]);
       template_file = std::string(argv[2]);
@@ -59,7 +64,7 @@ int main(int argc, char **argv) {
 	  output_file = std::string(argv[3]);
 	  break;
 	default:
-          std::cerr << "Usage: ./HW4 input_file template_file [output_filename]" << std::endl;
+          std::cerr << "Usage: ./hw4 input_file template_file [output_filename]" << std::endl;
           exit(1);
   }
   //load the image and give us our input and output pointers

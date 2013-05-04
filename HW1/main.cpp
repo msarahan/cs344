@@ -28,32 +28,37 @@ int main(int argc, char **argv) {
   bool useEpsCheck = false;
   switch (argc)
   {
-	case 2:
-	  input_file = std::string(argv[1]);
-	  output_file = "HW1_output.png";
-	  reference_file = "HW1_reference.png";
-	  break;
-	case 3:
-	  input_file  = std::string(argv[1]);
-      output_file = std::string(argv[2]);
-	  reference_file = "HW1_reference.png";
-	  break;
-	case 4:
-	  input_file  = std::string(argv[1]);
-      output_file = std::string(argv[2]);
-	  reference_file = std::string(argv[3]);
-	  break;
-	case 6:
-	  useEpsCheck=true;
-	  input_file  = std::string(argv[1]);
-	  output_file = std::string(argv[2]);
-	  reference_file = std::string(argv[3]);
-	  perPixelError = atof(argv[4]);
-      globalError   = atof(argv[5]);
-	  break;
-	default:
-      std::cerr << "Usage: ./HW1 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
-      exit(1);
+  	  case 1:
+  		  input_file = "HW1/cinque_terre_small.jpg";
+  		  output_file = "HW1_output.png";
+  		  reference_file = "HW1_reference.png";
+  		  break;
+  	  case 2:
+  		  input_file = std::string(argv[1]);
+  		  output_file = "HW1_output.png";
+  		  reference_file = "HW1_reference.png";
+  		  break;
+  	  case 3:
+  		  input_file  = std::string(argv[1]);
+  		  output_file = std::string(argv[2]);
+  		  reference_file = "HW1_reference.png";
+  		  break;
+  	  case 4:
+  		  input_file  = std::string(argv[1]);
+  		  output_file = std::string(argv[2]);
+  		  reference_file = std::string(argv[3]);
+  		  break;
+  	  case 6:
+  		  useEpsCheck=true;
+  		  input_file  = std::string(argv[1]);
+  		  output_file = std::string(argv[2]);
+  		  reference_file = std::string(argv[3]);
+  		  perPixelError = atof(argv[4]);
+  		  globalError   = atof(argv[5]);
+  		  break;
+  	  default:
+  		  std::cerr << "Usage: ./hw1 input_file [output_filename] [reference_filename] [perPixelError] [globalError]" << std::endl;
+  		  exit(1);
   }
   //load the image and give us our input and output pointers
   preProcess(&h_rgbaImage, &h_greyImage, &d_rgbaImage, &d_greyImage, input_file);
